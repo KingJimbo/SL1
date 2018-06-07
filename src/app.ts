@@ -1,7 +1,7 @@
 
 
 
-export class ScreepsController implements IScreepsController {
+export class Application {
 
     /**
      *

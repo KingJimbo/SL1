@@ -1,5 +1,0 @@
-///
-interface IScreepsController{
-
-    Run() : void;
-}
