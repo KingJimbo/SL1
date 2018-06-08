@@ -1,12 +1,11 @@
+import { Memory } from "modules/memory/manager";
 
-
-
-export class Application {
+export class SLApplication {
 
     /**
      *
      */
-    constructor() {
+    constructor(memoryManager: Memory.CreepMemoryManager = new CreepMemoryManager(),) {
         //super();
     }
 
