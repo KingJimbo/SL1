@@ -1,9 +1,17 @@
 import { ErrorMapper } from "utils/ErrorMapper";
+import SL1 from "entities/app/sl_app";
+import Injector from "injector/injector";
 
-// When compiling TS to JS and bundling with rollup, the line numbers and file names in error messages change
-// This utility uses source maps to get the line numbers and file names of the original, TS source code
+var inject = new Injector();
+var SL = inject.getScreepsApplication();
+
 export const loop = ErrorMapper.wrapLoop(() => {
   console.log(`Current game tick is ${Game.time}`);
+
+
+  SL.build();
+  SL.init();
+  SL.run();
 
   // Automatically delete memory of missing creeps
   for (const name in Memory.creeps) {
@@ -11,4 +19,6 @@ export const loop = ErrorMapper.wrapLoop(() => {
       delete Memory.creeps[name];
     }
   }
+
+
 });
