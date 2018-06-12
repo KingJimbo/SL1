@@ -11,3 +11,5 @@ class SLMemoryService implements MemoryService {
     }
 
 }
+
+export default SLMemoryService;

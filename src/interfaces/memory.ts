@@ -3,4 +3,4 @@ interface MemoryService{
     cleanDeadCreeps():void;
 }
 
-export default MemoryManager;
+export default MemoryService;

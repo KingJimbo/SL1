@@ -1,5 +1,4 @@
 import { ErrorMapper } from "utils/ErrorMapper";
-import SL1 from "entities/app/sl_app";
 import Injector from "injector/injector";
 
 var inject = new Injector();

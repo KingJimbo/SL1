@@ -5,12 +5,22 @@ import MemoryService from "interfaces/memory";
 import SLMemoryService from "entities/memory/slmemory";
 
 class Injector {
+
+    private memoryService:MemoryService;
+
+    /**
+     *
+     */
+    constructor() {
+        this.memoryService = new SLMemoryService();
+    }
+
     public getScreepsApplication():ScreepsApplication {
-        return new SL1();
+        return new SL1(this.memoryService);
     }
 
     public getMemoryService():MemoryService{
-        return new SLMemoryService();
+        return this.memoryService;
     }
 }
 

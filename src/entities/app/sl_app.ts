@@ -6,12 +6,13 @@ class SL1 implements ScreepApplication {
     /**
      *
      */
-    constructor(memoryService: MemoryService) {
+    constructor(private memoryService: MemoryService) {
         //super();
     }
 
     // initiate caches & colony components
     build(): void {
+        this.memoryService.cleanDeadCreeps();
         throw new Error("Method not implemented.");
     }
 
