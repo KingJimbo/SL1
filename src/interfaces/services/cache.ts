@@ -1,5 +1,5 @@
-interface CacheService{
+interface ICacheService{
 
 }
 
-export default CacheService;
+export default ICacheService;

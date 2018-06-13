@@ -1,8 +1,8 @@
 import ScreepApplication from "../../interfaces/app";
-import MemoryHelper from "../../interfaces/helpers/memory";
-import CreepHelper from "../../interfaces/helpers/creep";
-import CacheService from "../../interfaces/services/cache";
-import SettlementService from "../../interfaces/services/settlement";
+import IMemoryHelper from "../../interfaces/helpers/memory";
+import ICreepHelper from "../../interfaces/helpers/creep";
+import ICacheService from "../../interfaces/services/cache";
+import ISettlementService from "../../interfaces/services/settlement";
 
 class SL1 implements ScreepApplication {
 
@@ -10,10 +10,10 @@ class SL1 implements ScreepApplication {
      *
      */
     constructor(
-        private memoryService: MemoryHelper,
-        private creepHelper: CreepHelper,
-        private cacheService: CacheService,
-        private settlementService: SettlementService) {
+        private memoryService: IMemoryHelper,
+        private creepHelper: ICreepHelper,
+        private cacheService: ICacheService,
+        private settlementService: ISettlementService) {
         //super();
     }
 

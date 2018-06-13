@@ -1,5 +1,5 @@
-interface CreepHelper{
+interface ICreepHelper{
 
 }
 
-export default CreepHelper;
+export default ICreepHelper;

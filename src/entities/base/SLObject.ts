@@ -2,7 +2,7 @@ class SLObject{
     /**
      *
      */
-    constructor() {
+    constructor(public game:Game, public memory:Memory) {
     }
 }
 

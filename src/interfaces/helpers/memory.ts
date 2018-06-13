@@ -1,6 +1,6 @@
 //memory.ts
-interface MemoryHelper{
+interface IMemoryHelper{
     cleanDeadCreeps():void;
 }
 
-export default MemoryHelper;
+export default IMemoryHelper;

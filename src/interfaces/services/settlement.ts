@@ -1,5 +1,5 @@
-interface SettlementService{
+interface ISettlementService{
 
 }
 
-export default SettlementService;
+export default ISettlementService;
