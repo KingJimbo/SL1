@@ -1,6 +1,6 @@
-import MemoryService from '../../interfaces/memory';
+import MemoryHelper from '../../interfaces/helpers/memory';
 
-class SLMemoryService implements MemoryService {
+class SLMemoryHelper implements MemoryHelper {
     cleanDeadCreeps(): void {
         // Automatically delete memory of missing creeps
         for (const name in Memory.creeps) {
@@ -12,4 +12,4 @@ class SLMemoryService implements MemoryService {
 
 }
 
-export default SLMemoryService;
+export default SLMemoryHelper;

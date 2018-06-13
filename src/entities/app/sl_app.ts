@@ -1,12 +1,17 @@
 import ScreepApplication from "../../interfaces/app";
-import MemoryService from "../../interfaces/memory";
+import MemoryHelper from "../../interfaces/helpers/memory";
+import CreepHelper from "../../interfaces/helpers/creep";
+import CacheService from "../../interfaces/services/cache";
 
 class SL1 implements ScreepApplication {
 
     /**
      *
      */
-    constructor(private memoryService: MemoryService) {
+    constructor(
+        private memoryService: MemoryHelper,
+        private creepHelper: CreepHelper,
+        private cacheService: CacheService,) {
         //super();
     }
 
