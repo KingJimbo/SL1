@@ -1,46 +1,40 @@
 
 import MemoryHelper from './memory';
-//import { expect } from 'chai';
 var chai = require('chai');
 var expect = chai.expect;
-// var sinon = require('ts-sinon');
-// var stubObject = sinon.stubObject;
-//import 'mocha';
-
-import * as sinon from "ts-sinon";
-const stubObject = sinon.stubObject;
-const stubInterface = sinon.stubInterface;
-
-
+//import * as sinon from "ts-sinon";
+// const stubObject = sinon.stubObject;
+// const stubInterface = sinon.stubInterface;
+// const sandbox = sinon.default;
 
 describe('cleanUpDeadCreeps', () => {
 
-  it('should remove any creep memory', () => {
-    const creepStub = stubInterface<Creep>();
+  let creepStub = <Creep>{name:"Creep2"};
 
-    const memoryStub = stubInterface<Memory>();
-    const gameStub = stubInterface<Game>();
+  let gameStub = <Game>{};
+  gameStub.creeps = {"Creep2": creepStub};
 
-    expect(memoryStub.creeps).to.be.undefined;
-    memoryStub.creeps = {
-      "Creep1":{ id: 1},
-      "Creep2":{ id: 2}
-    };
+  let creepMemoryStub1 = <CreepMemory>{name:'Creep1'};
+  let creepMemoryStub2 = <CreepMemory>{name:'Creep2'};
 
-    gameStub.creeps = [
+  const memoryStub = <Memory>{};
+  memoryStub.creeps = {
+      "Creep1": creepMemoryStub1,
+      "Creep2": creepMemoryStub2
+  };
 
-      {
-      "Creep2":{ id: 2}
-    }]
+  let memoryHelper = new MemoryHelper(gameStub, memoryStub);
 
-    let memoryHelper = new MemoryHelper();
-    memoryHelper.cleanDeadCreeps();
-    expect(result).to.equal('Hello world!');
+  memoryHelper.cleanDeadCreeps();
+
+  it('should remove dead creep from memory', () => {
+    expect(memoryStub.creeps.Creep1).to.be.undefined;
   });
 
-  // it('should return 1', () => {
-  //   const result = 1;
-  //   expect(result).to.equal(1);
-  // });
+  it('should not remove defined creeps from memory', () => {
+    expect(memoryStub.creeps.Creep2).to.equal(creepMemoryStub2);
+  });
+
+  //return it('logs', ()=>{ console.log('Test End')});
 
 });

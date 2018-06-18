@@ -1,8 +1,8 @@
-import ScreepsApplication from "interfaces/app";
+import ISL from "interfaces/app";
 import SL1 from "entities/app/sl_app";
 
 import MemoryService from "interfaces/helpers/memory";
-import SLMemoryHelper from "entities/memory/slmemory";
+import MemoryHelper from "entities/helpers/memory/memory";
 
 class Injector {
 
@@ -12,11 +12,12 @@ class Injector {
      *
      */
     constructor() {
-        this.memoryHelper = new SLMemoryHelper();
+        this.memoryHelper = new MemoryHelper();
     }
 
-    public getScreepsApplication():ScreepsApplication {
-        return new SL1(this.memoryHelper,);
+    public getScreepsApplication():ISL {
+        throw new Error("Method not implemented.");
+        //return new SL1();
     }
 
     public getMemoryService():MemoryService{

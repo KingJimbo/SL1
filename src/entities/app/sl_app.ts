@@ -9,6 +9,11 @@ class SL1 implements ScreepApplication {
     /**
      *
      */
+    constructor() {
+    }
+    /**
+     *
+     */
     constructor(
         private memoryService: IMemoryHelper,
         private creepHelper: ICreepHelper,
