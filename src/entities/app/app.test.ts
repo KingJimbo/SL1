@@ -1,48 +1,95 @@
 
 import SL from './app';
 import IMemoryService from '../../interfaces/services/memory'
+import ISettlementService from '../../interfaces/services/settlement'
+import ISpawningService from '../../interfaces/services/spawning'
+import IEnergyService from '../../interfaces/services/energy'
+import ICreepService from '../../interfaces/services/creep'
+
 var chai = require('chai');
 var expect = chai.expect;
-//import * as sinon from "ts-sinon";
+import * as sinon from "ts-sinon";
 // const stubObject = sinon.stubObject;
 // const stubInterface = sinon.stubInterface;
-// const sandbox = sinon.default;
+const sandbox = sinon.default;
 
 
-let memoryServiceStub = <IMemoryService>{};
+let memoryServiceStub = <IMemoryService>{},
+    settlementServiceStub = <ISettlementService>{},
+    spawningServiceStub = <ISpawningService>{},
+    energyServiceStub = <IEnergyService>{},
+    creepServiceStub = <ICreepService>{};
 
-//let app = new SL()
+memoryServiceStub.clean = () => {};
+settlementServiceStub.evaluate = () => {};
+spawningServiceStub.handleSpawnRequests = () => {};
+spawningServiceStub.spawn = () => {};
+energyServiceStub.handleEnergyRequests = () => {};
+creepServiceStub.doJobs = () => {};
+
+let app = new SL(memoryServiceStub,settlementServiceStub,spawningServiceStub,energyServiceStub,creepServiceStub);
 
 describe('app build', () => {
+    //Create a spy for the setName function
+    var memoryServiceStubSpy = sandbox.spy(memoryServiceStub, 'clean');
+    var settlementServiceStubSpy = sandbox.spy(settlementServiceStub, 'evaluate');
 
-//   let creepStub = <Creep>{name:"Creep2"};
+    //Now, any time we call the function, the spy logs information about it
+    app.build();
 
-//   let gameStub = <Game>{};
-//   gameStub.creeps = {"Creep2": creepStub};
+    it('should call MemoryService clean once.', () => {
+        expect(memoryServiceStubSpy.callCount).to.equal(1);
+    });
 
-//   let creepMemoryStub1 = <CreepMemory>{name:'Creep1'};
-//   let creepMemoryStub2 = <CreepMemory>{name:'Creep2'};
+    it('should call SettlementService evaluate once.', () => {
+        expect(settlementServiceStubSpy.callCount).to.equal(1);
+    });
 
-//   const memoryStub = <Memory>{};
-//   memoryStub.creeps = {
-//       "Creep1": creepMemoryStub1,
-//       "Creep2": creepMemoryStub2
-//   };
-
-//   let memoryHelper = new MemoryHelper(gameStub, memoryStub);
-
-//   memoryHelper.clean();
-
-//   it('should remove dead creep from memory', () => {
-//     expect(memoryStub.creeps.Creep1).to.be.undefined;
-//   });
-
-//   it('should not remove defined creeps from memory', () => {
-//     expect(memoryStub.creeps.Creep2).to.equal(creepMemoryStub2);
-//   });
-
-  //return it('logs', ()=>{ console.log('Test End')});
-
-
-
+    //Important final step - remove the spy
+    memoryServiceStubSpy.restore();
+    settlementServiceStubSpy.restore();
 });
+
+describe('app init', () => {
+    //Create a spy for the setName function
+    var spawningServiceStubSpy = sandbox.spy(spawningServiceStub, 'handleSpawnRequests');
+    var energyServiceStubSpy = sandbox.spy(energyServiceStub, 'handleEnergyRequests');
+
+    //Now, any time we call the function, the spy logs information about it
+    app.init();
+
+    it('should call SpawnService handleSpawnRequests once.', () => {
+        expect(spawningServiceStubSpy.callCount).to.equal(1);
+    });
+
+    it('should call EnergyService handleEnergyRequests once.', () => {
+        expect(energyServiceStubSpy.callCount).to.equal(1);
+    });
+
+    //Important final step - remove the spy
+    spawningServiceStubSpy.restore();
+    energyServiceStubSpy.restore();
+});
+
+describe('app run', () => {
+    //Create a spy for the setName function
+    var spawningServiceStubSpy = sandbox.spy(spawningServiceStub, 'spawn');
+    var creepServiceStubSpy = sandbox.spy(creepServiceStub, 'doJobs');
+
+    //Now, any time we call the function, the spy logs information about it
+    app.run();
+
+    it('should call SpawnService spawn once.', () => {
+        expect(spawningServiceStubSpy.callCount).to.equal(1);
+    });
+
+    it('should call EnergyService doJobs once.', () => {
+        expect(creepServiceStubSpy.callCount).to.equal(1);
+    });
+
+    //Important final step - remove the spy
+    spawningServiceStubSpy.restore();
+    creepServiceStubSpy.restore();
+});
+
+
