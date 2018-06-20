@@ -1,5 +1,5 @@
 import ISL from "interfaces/app";
-import SL1 from "entities/app/sl_app";
+import SL1 from "entities/app/app";
 
 import MemoryService from "interfaces/helpers/memory";
 import MemoryHelper from "entities/helpers/memory/memory";

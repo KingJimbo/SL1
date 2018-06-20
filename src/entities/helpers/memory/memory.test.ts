@@ -25,7 +25,7 @@ describe('cleanUpDeadCreeps', () => {
 
   let memoryHelper = new MemoryHelper(gameStub, memoryStub);
 
-  memoryHelper.cleanDeadCreeps();
+  memoryHelper.clean();
 
   it('should remove dead creep from memory', () => {
     expect(memoryStub.creeps.Creep1).to.be.undefined;
