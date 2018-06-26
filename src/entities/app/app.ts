@@ -2,7 +2,7 @@ import ScreepApplication from "../../interfaces/app";
 import IMemoryService from "../../interfaces/services/memory";
 //import ICreepHelper from "../../interfaces/helpers/creep";
 //import ICacheService from "../../interfaces/services/cache";
-import ISettlementService from "../../interfaces/services/settlement";
+import IRoomService from "../../interfaces/services/room";
 import ISpawningService from "../../interfaces/services/spawning";
 import IEnergyService from "../../interfaces/services/energy";
 import ICreepService from "../../interfaces/services/creep";
@@ -16,7 +16,7 @@ class SL1 implements ScreepApplication {
         private memoryService: IMemoryService,
         //private creepHelper: ICreepHelper,
         //private cacheService: ICacheService, // Not required yet
-        private settlementService: ISettlementService,
+        private roomService: IRoomService,
         private spawningService: ISpawningService,
         private energyService: IEnergyService,
         private creepService: ICreepService
@@ -28,7 +28,7 @@ class SL1 implements ScreepApplication {
     // clean memory and evaluate settlements
     build(): void {
         this.memoryService.clean();
-        this.settlementService.evaluate();
+        this.roomService.evaluate();
     }
 
     // Spawning and energy requests

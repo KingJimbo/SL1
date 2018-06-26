@@ -1,7 +1,7 @@
 
 import SL from './app';
 import IMemoryService from '../../interfaces/services/memory'
-import ISettlementService from '../../interfaces/services/settlement'
+import IRoomService from '../../interfaces/services/room'
 import ISpawningService from '../../interfaces/services/spawning'
 import IEnergyService from '../../interfaces/services/energy'
 import ICreepService from '../../interfaces/services/creep'
@@ -15,24 +15,24 @@ const sandbox = sinon.default;
 
 
 let memoryServiceStub = <IMemoryService>{},
-    settlementServiceStub = <ISettlementService>{},
+    roomServiceStub = <IRoomService>{},
     spawningServiceStub = <ISpawningService>{},
     energyServiceStub = <IEnergyService>{},
     creepServiceStub = <ICreepService>{};
 
 memoryServiceStub.clean = () => {};
-settlementServiceStub.evaluate = () => {};
+roomServiceStub.evaluate = () => {};
 spawningServiceStub.handleSpawnRequests = () => {};
 spawningServiceStub.spawn = () => {};
 energyServiceStub.handleEnergyRequests = () => {};
 creepServiceStub.doJobs = () => {};
 
-let app = new SL(memoryServiceStub,settlementServiceStub,spawningServiceStub,energyServiceStub,creepServiceStub);
+let app = new SL(memoryServiceStub,roomServiceStub,spawningServiceStub,energyServiceStub,creepServiceStub);
 
 describe('app build', () => {
     //Create a spy for the setName function
     var memoryServiceStubSpy = sandbox.spy(memoryServiceStub, 'clean');
-    var settlementServiceStubSpy = sandbox.spy(settlementServiceStub, 'evaluate');
+    var settlementServiceStubSpy = sandbox.spy(roomServiceStub, 'evaluate');
 
     //Now, any time we call the function, the spy logs information about it
     app.build();

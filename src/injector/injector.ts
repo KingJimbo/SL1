@@ -1,18 +1,18 @@
 import ISL from "interfaces/app";
 import SL1 from "entities/app/app";
 
-import MemoryService from "interfaces/helpers/memory";
+import MemoryService from "interfaces/services/memory";
 import MemoryHelper from "entities/helpers/memory/memory";
 
 class Injector {
 
-    private memoryHelper:MemoryService;
+    private memoryService:MemoryService;
 
     /**
      *
      */
     constructor() {
-        this.memoryHelper = new MemoryHelper();
+        this.memoryService = new MemoryHelper();
     }
 
     public getScreepsApplication():ISL {
@@ -21,7 +21,7 @@ class Injector {
     }
 
     public getMemoryService():MemoryService{
-        return this.memoryHelper;
+        return this.memoryService;
     }
 }
 

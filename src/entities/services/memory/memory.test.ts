@@ -1,5 +1,5 @@
 
-import MemoryHelper from './memory';
+import MemoryService from './memory';
 var chai = require('chai');
 var expect = chai.expect;
 //import * as sinon from "ts-sinon";
@@ -7,7 +7,7 @@ var expect = chai.expect;
 // const stubInterface = sinon.stubInterface;
 // const sandbox = sinon.default;
 
-describe('cleanUpDeadCreeps', () => {
+describe('cleanDeadCreeps', () => {
 
   let creepStub = <Creep>{name:"Creep2"};
 
@@ -23,9 +23,9 @@ describe('cleanUpDeadCreeps', () => {
       "Creep2": creepMemoryStub2
   };
 
-  let memoryHelper = new MemoryHelper(gameStub, memoryStub);
+  let memoryHelper = new MemoryService(gameStub, memoryStub);
 
-  memoryHelper.clean();
+  memoryHelper.cleanDeadCreeps();
 
   it('should remove dead creep from memory', () => {
     expect(memoryStub.creeps.Creep1).to.be.undefined;
