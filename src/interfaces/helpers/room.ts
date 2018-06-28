@@ -1,6 +1,6 @@
 
 interface IRoomHelper{
-    createNewStructureMap():any;
+    createStructureMap(structures:AnyOwnedStructure[]):any;
     createStructureProperties(structure:AnyOwnedStructure):any;
 }
 

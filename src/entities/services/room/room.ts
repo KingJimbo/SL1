@@ -42,7 +42,15 @@ class RoomService implements IRoomService{
 
     mapRoomStructures(room:Room): void {
         var structures = room.find(FIND_MY_STRUCTURES);
-        var structureMap = this.roomHelper.createNewStructureMap();
+        var roomMemory = room.memory as any;
+
+        if(roomMemory.structureMap){
+            // update structure map
+        }
+        else{
+            //map new structure map
+            var structureMap = this.roomHelper.createStructureMap(structures);
+        }
 
         for(var structureName in structures){
             var structure = structures[structureName];
