@@ -1,6 +1,6 @@
-interface IStructureMap{
-    id:number;
+interface IMapStructure {
+    placementOrder:number;
     pos:RoomPosition;
 }
 
-export default IStructureMap;
+export default IMapStructure;

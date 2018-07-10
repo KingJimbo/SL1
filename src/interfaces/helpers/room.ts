@@ -1,6 +1,6 @@
-
+import IRoomMap from '../room/map';
 interface IRoomHelper{
-    createStructureMap(structures:AnyOwnedStructure[]):any;
+    createRoomMap(structures:AnyOwnedStructure[]):IRoomMap;
     createStructureProperties(structure:AnyOwnedStructure):any;
 }
 

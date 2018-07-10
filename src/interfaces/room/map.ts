@@ -1,23 +1,23 @@
-import IStructureMap from './structureMap';
+import IMapStructure from './structureMap';
 
 interface IRoomMap{
-    container:IStructureMap[];
-    controller:IStructureMap[],
-    extension:IStructureMap[],
-    extractor:IStructureMap[],
-    lab:IStructureMap[],
-    link:IStructureMap[],
-    nuker:IStructureMap[],
-    observer:IStructureMap[],
-    powerBank:IStructureMap[],
-    powerSpawn:IStructureMap[],
-    rampart:IStructureMap[],
-    road:IStructureMap[],
-    spawn:IStructureMap[],
-    storage:IStructureMap[],
-    terminal:IStructureMap[],
-    tower:IStructureMap[],
-    wall:IStructureMap[]
+    container:IMapStructure[];
+    controller:IMapStructure[],
+    extension:IMapStructure[],
+    extractor:IMapStructure[],
+    lab:IMapStructure[],
+    link:IMapStructure[],
+    nuker:IMapStructure[],
+    observer:IMapStructure[],
+    powerBank:IMapStructure[],
+    powerSpawn:IMapStructure[],
+    rampart:IMapStructure[],
+    road:IMapStructure[],
+    spawn:IMapStructure[],
+    storage:IMapStructure[],
+    terminal:IMapStructure[],
+    tower:IMapStructure[],
+    wall:IMapStructure[]
 }
 
 export default IRoomMap;

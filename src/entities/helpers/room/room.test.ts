@@ -14,7 +14,7 @@ let roomHelper = new RoomHelper();
 describe('createStructureMap without structures test', () => {
     let structureArrayStub = <AnyOwnedStructure[]>[];
 
-    var map = roomHelper.createStructureMap(structureArrayStub);
+    var map = roomHelper.createRoomMap(structureArrayStub);
 
     HardTests(map);
 
@@ -165,7 +165,7 @@ describe('createStructureMap with structures test', () => {
         }
     ];
 
-    var map = roomHelper.createStructureMap(structureArrayStub) as IRoomMap;
+    var map = roomHelper.createRoomMap(structureArrayStub) as IRoomMap;
 
     HardTests(map);
 

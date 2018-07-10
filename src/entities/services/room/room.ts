@@ -49,7 +49,7 @@ class RoomService implements IRoomService{
         }
         else{
             //map new structure map
-            var structureMap = this.roomHelper.createStructureMap(structures);
+            var structureMap = this.roomHelper.createRoomMap(structures) as any;
         }
 
         for(var structureName in structures){
